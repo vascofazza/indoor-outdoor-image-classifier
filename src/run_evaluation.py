@@ -5,16 +5,14 @@ import argparse
 import logging
 import numpy as np
 
-
+#Evaluates the model on the test dataset split.
 def evaluate_testset(args):
+    #Load the configuration file.
     config = load_configuration(args.config)
+    #Initialize the model.
     model = CNN_model.CNN(config)
-    last_checkpoint, last_epoch = get_last_checkpoint(config['checkpoint_dir'])
-    if last_checkpoint is None:
-        logging.warning("Error retreiving last model checkpoint -- Weights not loaded.")
-    else:
-        model.load_weights(last_checkpoint)
-        logging.info("Weights loaded -- epoch %d." % last_epoch)
+    #Loads the last checkpoint.
+    model.load_weights()
 
     logging.info("Loading test dataset")
     x_test, y_test = load_dataset_numpy(config['test_dataset'], args.data_path, label_strings=config['label_strings'])

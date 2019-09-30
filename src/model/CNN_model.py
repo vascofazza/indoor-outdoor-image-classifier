@@ -6,7 +6,9 @@ from src.util.utils import to_string_label, get_last_checkpoint
 import os
 import logging
 
-
+#Model class.
+#Implements a 3-layer CNN with RELU activation and dropout.
+#Kernel size and dropout value are customizable through an YML configuration file
 class CNN:
     def __init__(self, config):
         self.config = config
@@ -21,6 +23,7 @@ class CNN:
         self.model.save_weights(path)
         logging.info("Model weights saved.")
 
+    #loads the weights from disk. If path is not provided, it loads the last available checkpoint.
     def load_weights(self, path=None):
         if path is None:
             last_checkpoint, last_epoch = get_last_checkpoint(self.config['checkpoint_dir'])
@@ -34,6 +37,7 @@ class CNN:
             logging.info("Model weights loaded.")
 
     def build_model(self):
+        #Image size is assumed square.
         img_size = self.config['img_size']
 
         if K.image_data_format() == 'channels_first':
@@ -56,6 +60,7 @@ class CNN:
         model.add(Activation('relu'))
         model.add(MaxPooling2D(kernel_size))
 
+        #the last CNN layer is flattened and feeded into a dense layer for the final prediction.
         model.add(Flatten())
         model.add(Dense(64))
         model.add(Activation('relu'))
@@ -63,6 +68,7 @@ class CNN:
         model.add(Dense(1))
         model.add(Activation('sigmoid'))
 
+        #binary crossentropy for binary classification.
         model.compile(loss='binary_crossentropy',
                       optimizer=self.config['optimizer'],
                       metrics=['accuracy'])

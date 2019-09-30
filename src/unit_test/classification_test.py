@@ -5,7 +5,8 @@ from src.util.config import load_configuration
 from src.util.utils import load_image
 import numpy as np
 
-
+#Unit test.
+#Tests the model against two benchmark pictures.
 class ClassificationTest(unittest.TestCase):
 
     def setUp(self):

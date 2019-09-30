@@ -5,18 +5,23 @@ import argparse
 import logging
 import numpy as np
 
-
+#Predicts the class for a single input image.
 def predict(args):
+    #Load the config file.
     config = load_configuration(args.config)
+    #Initialize the model.
     model = CNN_model.CNN(config)
+    #Load the last checkpoint.
     model.load_weights()
 
     logging.info("Loading test dataset")
 
+    #Image size is assumed square.
     img_size = (config['img_size'], config['img_size'])
     image = load_image(args.input, img_size)
     image = np.expand_dims(image, 0)
 
+    #Predict the most probable class
     prediction = model.predict(image)
     print(args.input, "prediction: " + prediction)
 

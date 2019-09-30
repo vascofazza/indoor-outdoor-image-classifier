@@ -4,6 +4,7 @@ from src.model import CNN_model
 import argparse
 import logging
 
+#Trainer class responsible of handling the training process.
 class Trainer:
 
     def __init__(self, config, model, initial_epoch = 0):
@@ -21,13 +22,16 @@ class Trainer:
         for epoch in range(self.initial_epoch, num_epochs):
             #['acc', 'loss', 'val_acc', 'val_loss']
             history = self.model.model.fit(x_train, y_train, self.config['batch_size'], 1, validation_data=(x_test, y_test), shuffle=self.config['shuffle'])
-            # print("Validation loss: %f\nValidation accuracty: %f"%(history.history['val_loss'][0], history.history['val_acc'][0]))
+            #Save a checkpoint after each epoch.
             self.model.save_weights(epoch)
 
 
 def train(args):
+    #Load the configuration file.
     config = load_configuration(args.config)
+    #Initialize the model
     model = CNN_model.CNN(config)
+    #Load the last checkpoint if resuming the training.
     last_checkpoint, last_epoch = get_last_checkpoint(config['checkpoint_dir'])
     if args.resume_training:
         if last_checkpoint is None:
