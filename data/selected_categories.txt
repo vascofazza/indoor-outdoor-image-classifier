@@ -1,0 +1,6 @@
+Garden	outdoor
+Living room	indoor
+Bedroom	indoor
+Dining room	indoor
+Outdoor recreation	outdoor
+Hiking	outdoor

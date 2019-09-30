@@ -1,0 +1,8 @@
+tqdm==4.36.1
+tensorflow==1.13.1
+sklearn==0.0
+PyYAML==5.1.2
+Pillow==5.4.1
+Keras==2.3.0
+numpy==1.16.2
+pytest==5.2.0

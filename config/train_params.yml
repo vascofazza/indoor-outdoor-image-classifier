@@ -1,0 +1,16 @@
+#model
+img_size: 64
+kernel_size: [2, 2]
+dropout: 0.5
+
+shuffle: True
+optimizer: adam
+batch_size: 32
+num_epochs: 10
+
+#data
+train_dataset: data/train_labels.txt
+test_dataset: data/test_labels.txt
+checkpoint_dir: data/checkpoints/
+
+label_strings: ['indoor', 'outdoor']
