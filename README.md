@@ -5,14 +5,6 @@ This repository contains scripts for downloading videos corresponding to a parti
 
 ## Dependencies
 
-Dependencies for downloading youtube videos from ids
-
-* [youtube-dl](https://github.com/rg3/youtube-dl#installation)
-
-Dependencies for generation of frames from videos
-
-* [ffmpeg](https://www.ffmpeg.org/download.html)
-
 Python dependencies for the classification task
 
 * Numpy
@@ -22,6 +14,19 @@ Python dependencies for the classification task
 * tqdm
 * PyYaml
 * pytest
+
+Dependencies for downloading youtube videos from ids
+
+* [youtube-dl](https://github.com/rg3/youtube-dl#installation)
+
+Dependencies for generation of frames from videos
+
+* [ffmpeg](https://www.ffmpeg.org/download.html)
+
+Dependences for image preprocessing and resizing
+
+* [imagemagick](https://imagemagick.org/index.php)
+
 
 ## Install Python dependencies
 
