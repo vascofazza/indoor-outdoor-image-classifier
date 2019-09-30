@@ -60,7 +60,7 @@ Prepare the test environment downloading the provided dataset excerpt:
 ```
 $ cd indoor-outdoor-image-classifier
 $ wget http://insidecode.it/indoor-outdoor-data_64.zip
-$ unsip indoor-outdoor-data_64.zip
+$ unzip indoor-outdoor-data_64.zip
 ```
 
 ### Evaluate the model on the test split
