@@ -1,5 +1,5 @@
 tqdm==4.36.1
-tensorflow==1.13.1
+tensorflow==1.15.0
 sklearn==0.0
 PyYAML==5.1.2
 Pillow==5.4.1
