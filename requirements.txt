@@ -1,7 +1,7 @@
 tqdm==4.36.1
 tensorflow==1.15.4
 sklearn==0.0
-PyYAML==5.1.2
+PyYAML==5.4
 pillow>=6.2.2
 Keras==2.3.1
 numpy==1.16.2
